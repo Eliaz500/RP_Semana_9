@@ -18,6 +18,7 @@ import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriter;
@@ -292,9 +293,48 @@ public class ImagemDigital {
     }
 
     public static void main(String[] args) throws Exception {
-        int[][] imagem = carregarImagem("./cap02/Fig0222(a)(face).png");
-        plotarImagem(imagem, "nome");
-        // salvarImagemPNG(imagem, "teste.png");
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n\n==== Menu ====\n");
+            System.out.println("1. Questão 1");
+            System.out.println("2. Questão 2");
+            System.out.println("3. Questão 3");
+            System.out.println("4. Questão 4");
+            System.out.println("5. Questão 5");
+            System.out.println("0. Sair");
+            System.out.print("Escolha uma opção: ");
+
+            int opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    new Questao_1().gerarImagensInterpoladas();
+                    break;
+                case 2:
+                    new Questao_2().analisarDiferencasImagens();
+                    break;
+                case 3:
+                    new Questao_3().corrigirIluminacao();
+                    break;
+                case 4:
+                    new Questao_4().realizarProdutoImagens();
+                    break;
+                case 5:
+                    // LETRA A:
+                    new Questao_5().gerarImagemMedia();
+                    // LETRA B:
+                    new Questao_5().analisarImagemMedia10();
+                    break;
+                case 0:
+                    System.out.println("Fim!");
+                    System.exit(0);
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
+
     }
 
 }
