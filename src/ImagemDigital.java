@@ -327,6 +327,9 @@ public class ImagemDigital {
                     // LETRA B:
                     new Questao_5().analisarImagemMedia10();
                     break;
+                case 6:
+                new Questao_2().analisarDiferencasImagensRGB();
+                    break;
                 case 0:
                     System.out.println("Fim!");
                     System.exit(0);
